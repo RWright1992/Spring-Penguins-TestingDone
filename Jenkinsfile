@@ -8,10 +8,10 @@ pipeline {
 		}
 		stage('Moving Jar'){
 			steps{
-			sh 'mkdir -p /home/jenkins/${JOB_NAME}/Jars'
-			sh 'mv ./target/*.jar /home/jenkins/${JOB_NAME}/Jars/${JOB_NAME}_${BUILD_NUMBER}_fatJar.jar'
+			sh 'mkdir -p /home/jenkins/Jars'
+			sh 'mv ./target/*.jar /home/jenkins/Jars/project_fatJar.jar'
 			}
-                }
+                }i
 		stage('Stopping Service'){
 			steps{
 			sh 'bash stopservice.sh'
@@ -29,10 +29,8 @@ User=ubuntu
 Type=simple
 
 Environment="JAVA_HOME=/usr/bin/java"
-Environment="JOB_NAME=${env.JOB_NAME}"
-Environment="BUILD_NAME=${env.BUILD_NAME}"
-WorkingDirectory=/home/jenkins/${JOB_NAME}/Jars
-ExecStart="${JAVA_HOME}/bin/java -jar ${JOB_NAME}_${BUILD_NUMBER}_fatJar.jar"
+WorkingDirectory=/home/jenkins/Jars
+ExecStart="${JAVA_HOME}/bin/java -jar project_fatJar.jar"
 
 
 [Install]
