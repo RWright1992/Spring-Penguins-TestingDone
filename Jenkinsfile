@@ -30,7 +30,7 @@ Type=simple
 
 Environment="JAVA_HOME=/usr/bin/java"
 WorkingDirectory=/home/jenkins/Jars
-ExecStart=${JAVA_HOME}/bin/java -jar project_fatJar.jar
+ExecStart=/bin/sh -c 'java -jar project_fatJar.jar'
 
 
 [Install]
