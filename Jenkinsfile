@@ -34,7 +34,7 @@ Environment="JAVA_HOME=/usr/bin/java"
 Environment="JOB_NAME=${env.JOB_NAME}"
 Environment="BUILD_NAME=${env.BUILD_NAME}"
 WorkingDirectory=/home/jenkins/${JOB_NAME}/Jars
-ExecStart=${JAVA_HOME}/bin/java -jar "${JOB_NAME}_${BUILD_NUMBER}_fatJar.jar"
+ExecStart="${JAVA_HOME}/bin/java -jar ${JOB_NAME}_${BUILD_NUMBER}_fatJar.jar"
 ExecStop=/bin/kill -15 $MAINPID
 
 [Install]
