@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('Run Jar'){
 			steps{
-			sh './deploy.sh'
+			bash ./deploy.sh
 			}
                 }
 
