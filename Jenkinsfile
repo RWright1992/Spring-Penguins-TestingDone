@@ -18,7 +18,8 @@ pipeline {
 		}
 		stage('Create new service file'){
 			steps{
-			sh '[Unit]
+			sh '/etc/systemd/system/myApp.service < EOF
+[Unit]
 Description=My SpringBoot App
 
 [Service]
@@ -37,7 +38,8 @@ ExecStart="${JAVA_HOME}/bin/java -jar ${JOB_NAME}_${BUILD_NUMBER}_fatJar.jar"
 ExecStop=/bin/kill -15 $MAINPID
 
 [Install]
-WantedBy=multi-user.target > /etc/systemd/system/myApp.service < EOF'
+WantedBy=multi-user.target 
+EOF'
 			}
 		}
 		stage('Reload and start service'){
