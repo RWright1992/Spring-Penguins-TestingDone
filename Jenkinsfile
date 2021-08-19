@@ -11,7 +11,7 @@ pipeline {
 			sh 'mkdir -p /home/jenkins/Jars'
 			sh 'mv ./target/*.jar /home/jenkins/Jars/project_fatJar.jar'
 			}
-                }i
+                }
 		stage('Stopping Service'){
 			steps{
 			sh 'bash stopservice.sh'
