@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage('Create new service file'){
 			steps{
-			sh '''echo ' 
+			sh '''sudo echo ' 
 [Unit]
 Description=My SpringBoot App
 
