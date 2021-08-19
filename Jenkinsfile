@@ -24,10 +24,8 @@ pipeline {
 Description=My SpringBoot App
 
 [Service]
-SuccessExitStatus=143
 
 User=ubuntu
-Group=admin
 
 Type=simple
 
@@ -36,7 +34,7 @@ Environment="JOB_NAME=${env.JOB_NAME}"
 Environment="BUILD_NAME=${env.BUILD_NAME}"
 WorkingDirectory=/home/jenkins/${JOB_NAME}/Jars
 ExecStart="${JAVA_HOME}/bin/java -jar ${JOB_NAME}_${BUILD_NUMBER}_fatJar.jar"
-ExecStop=/bin/kill -15 $MAINPID
+
 
 [Install]
 WantedBy=multi-user.target' > /home/jenkins/myApp.service '''
