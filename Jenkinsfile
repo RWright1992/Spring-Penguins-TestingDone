@@ -8,8 +8,7 @@ pipeline {
 		}
 		stage('Moving Jar'){
 			steps{
-			sh 'mkdir /home/jenkins/${JOB_NAME}'
-			sh 'mkdir /home/jenkins/${JOB_NAME}/Jars'
+			sh 'mkdir -p /home/jenkins/${JOB_NAME}/Jars'
 			sh 'mv ./target/*.jar /home/jenkins/${JOB_NAME}/Jars/${JOB_NAME}_${BUILD_NUMBER}_fatJar.jar'
 			}
                 }
