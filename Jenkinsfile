@@ -9,7 +9,10 @@ pipeline {
 		stage('Moving Jar'){
 			steps{
 			sh 'mkdir -p /home/jenkins/Jars'
+			sh 'mkdir -p /home/jenkins/appservice'
 			sh 'mv ./target/*.jar /home/jenkins/Jars/project_fatJar.jar'
+			sh ''' echo '#!/bin/bash
+sudo java -jar /home/jenkins/Jars/project_fatJar.jar > /home/jenkins/appservice/start.sh'''
 			}
                 }
 		stage('Stopping Service'){
@@ -30,7 +33,7 @@ Type=simple
 
 Environment="JAVA_HOME=/usr/bin/java"
 WorkingDirectory=/home/jenkins/Jars
-ExecStart=/bin/sh -c 'java -jar project_fatJar.jar'
+ExecStart=/home/jenkins/appservice/start.sh
 
 
 [Install]
