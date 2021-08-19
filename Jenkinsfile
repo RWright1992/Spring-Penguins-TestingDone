@@ -2,10 +2,14 @@ pipeline {
 	agent any
 	stages{
 		stage('Build Jar'){
-		sh 'mvn clean package'
+			steps{
+			sh 'mvn clean package'
+			}
 		}
 		stage('Run Jar'){
-		sh 'ls'
+			steps{
+			sh 'ls'
+			}
                 }
 
 	}
