@@ -12,7 +12,7 @@ pipeline {
 			sh 'mkdir -p /home/jenkins/appservice'
 			sh 'mv ./target/*.jar /home/jenkins/Jars/project_fatJar.jar'
 			sh ''' echo '#!/bin/bash
-sudo java -jar /home/jenkins/Jars/project_fatJar.jar > /home/jenkins/appservice/start.sh'''
+sudo java -jar /home/jenkins/Jars/project_fatJar.jar' > /home/jenkins/appservice/start.sh'''
 			}
                 }
 		stage('Stopping Service'){
